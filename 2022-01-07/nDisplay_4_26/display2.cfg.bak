@@ -1,0 +1,49 @@
+
+[info] version="23"
+
+
+[cluster_node] id="node_Right" addr="127.0.0.1" window="wnd_Right" master="true" sound="true"
+[cluster_node] id="node_Left" addr="127.0.0.1" window="wnd_Left"
+
+
+[window] id="wnd_Right" viewports="vp_R" fullscreen="false" WinX="0" WinY="0"    ResX="960" ResY="540"
+[window] id="wnd_Left" viewports="vp_L" fullscreen="false" WinX="960" WinY="0"    ResX="960" ResY="540"
+
+[viewport] id="vp_R" x="0" y="0" width="960" height="540" projection="proj_simple_R"
+[viewport] id="vp_L" x="0" y="0" width="960" height="540" projection="proj_simple_L"
+
+[projection] id="proj_simple_R" type="simple" screen="scr_R"
+[projection] id="proj_simple_L" type="simple" screen="scr_L"
+
+[screen] id="scr_R" loc="X=0,Y=0,Z=0" rot="P=0,Y=0,R=0" size="X=0.52,Y=0.29" parent="display_R"
+[screen] id="scr_L" loc="X=0,Y=0,Z=0" rot="P=0,Y=0,R=0" size="X=0.52,Y=0.29" parent="display_L"
+
+[camera] id="camera_dynamic" loc="X=0,Y=0,Z=0" parent="socket_cam" eye_swap="false" eye_dist="0.064" force_offset="0"
+
+
+[scene_node] id="cave_origin"	loc="X=0,Y=0,Z=0"		rot="P=0,Y=0,R=0"
+[scene_node] id="eye_level"		loc="X=0,Y=0,Z=0"	rot="P=0,Y=0,R=0" parent="cave_origin"
+
+[scene_node] id="column_R"		loc="X=1,Y=0,Z=0"	rot="P=0,Y=0,R=0" parent="eye_level"
+[scene_node] id="column_L"		loc="X=1,Y=0.52,Z=0"	rot="P=0,Y=0,R=0" parent="eye_level"
+
+[scene_node] id="socket_cam"	loc="X=0,Y=0,Z=0"		rot="P=0,Y=0,R=0" parent="eye_level"
+[scene_node] id="display_R"		loc="X=0,Y=0,Z=0"		rot="P=0,Y=0,R=0" parent="column_R"
+[scene_node] id="display_L"		loc="X=0,Y=0,Z=0"		rot="P=0,Y=0,R=0" parent="column_L"
+
+
+
+#[input] id="ViveVRPN" type="tracker"  addr="openvr/controller/LHR-FFFFF940@192.168.29.224:3884"  loc="X=0,Y=0,Z=0" rot="P=0,Y=0,R=0" front="-Z" right="X" up="Y"
+[input] id="MAxis"     type="analog"  addr="Mouse0@127.0.0.1"
+[input] id="MButtons"  type="buttons" addr="Mouse0@127.0.0.1"
+[input] id="KButtons"  type="buttons" addr="Keyboard0@127.0.0.1"
+
+
+
+[general] swap_sync_policy="1"
+
+
+[network] cln_conn_tries_amount="10" cln_conn_retry_delay="1000" game_start_timeout="30000" barrier_wait_timeout="5000"
+
+
+[custom] SampleArg1="SampleVal1" SampleArg2="SampleVal2"
